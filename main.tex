@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% all includes and settings are in a separate file
+\input{header.tex}
+
+\title{Chemická kinetika}
+\author{Petr Slavíček}
+\date{September 2019}
+
+\begin{document}
+
+\input{titlepage.tex}
+
+%Table of content
+\pagestyle{plain}
+\pagenumbering{arabic}
+\setcounter{page}{3}
+\tableofcontents
+
+\clearpage
+\section*{Milý čtenáři!}
+\label{kap:uvod}
+\input{texty/uvod.tex}
+
+\clearpage
+\section{První kapitola}
+%\label{kap:kapitola1}
+%\input{texty/XXX.tex}
+
+\end{document}

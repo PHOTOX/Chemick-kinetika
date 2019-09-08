@@ -1,0 +1,112 @@
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amssymb}  %matematické fonty
+\usepackage{amsmath}  %umoznuje prikaz \numberwithin
+\usepackage{epstopdf} %vkládání eps obrázků do pdf souboru
+
+% Toto je zkopirovano ze skript Kvantove chemie
+% Je moznod odkomentovat dle potřeby
+
+%\usepackage{rotating} % rotace tabulky
+%\usepackage{multicol} % slouceni sloupcu v tabulce
+%\usepackage{multirow} % slouceni radku v tabulce
+%\usepackage{epigraph}% citaty
+%\usepackage{mathrsfs} % fonty do teorie group 
+%\usepackage{tcolorbox} % fancy staff
+%\usepackage{lscape}
+%\usepackage{mathbbol}
+%\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}%
+
+
+\usepackage{xcolor}
+% here is a nice documentation for tcolorbox
+%https://www.overleaf.com/latex/examples/drawing-coloured-boxes-using-colorbox/pvknncpjyfbp#.VmjpHx8SprQ1
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable} %boxes over more pages
+%\usepackage{picinpar}
+%\usepackage{braket}
+\usepackage[squaren]{SIunits} %spravne sazeni jednotek
+\usepackage{booktabs} %lepsi vzhled tabulek
+\usepackage[version=3]{mhchem} % sázení chemických vzorců
+
+
+\usepackage[ paperheight  =292mm,paperwidth   =204mm,  % or: "paper=a4paper"
+             layoutheight =226 mm,layoutwidth  =148mm,
+             layoutvoffset= 33mm,layouthoffset= 28mm,
+             margin=0pt,
+             showframe=false, showcrop=false]{geometry}
+
+\usepackage[bf]{caption}   %tucne "Figure" a "table'
+\captionsetup{width=0.9\textwidth} %úprava šířky popisků
+\captionsetup{textfont=it, font=small} %úprava fontů u obrázků, text bude menší a italikou
+\footskip 22pt
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}  %footnote jako symboly
+%\renewcommand{\thefootnote}{\alph{footnote}} %footnote jako mala pismenka
+\usepackage{url}   %pro snadnou tvorbu URL adres
+
+% redefinice vektoru, nyní značíme tučně
+\renewcommand{\vec}{\mathbf}
+
+% prikaz na vykresleni diferencialu \mathrm{d}
+%\newcommand{\dd}{\mathrm{d}}
+\newcommand\dd{\mathop{}\!\mathrm{d}}  % from http://tex.stackexchange.com/questions/60545/should-i-mathrm-the-d-in-my-integrals
+
+% zkrácený výraz pro parciální derivaci
+\newcommand{\pd}{\partial}
+
+% zkraceny vyraz pro hmotnost elektronu
+\newcommand{\me}{m_{\mathrm{e}}}
+
+% zkraceny vyraz pro exponencialu
+\newcommand{\ee}{\mathrm{e}}
+
+%Kolafova zavorka pres 3 radky
+\newcommand*\twobrace{$\displaystyle\left.\rule{0pt}{3.1ex}\right\}$}
+\newcommand*\threebrace{$\displaystyle\left.\rule{0pt}{5ex}\right\}$}
+
+
+\definecolor{ourgray}{gray}{0.8}
+\colorlet{ourcyan}{cyan!10}
+\newenvironment{ourbox}[1]
+{\medskip
+\begin{tcolorbox}[breakable,width=\textwidth,colback={ourcyan},title={\large #1},colbacktitle=ourgray,coltitle=black]
+}
+{\end{tcolorbox}}
+
+%procedura definujici nove prostredi "priklad"
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}
+\newcounter{poradi} % novy citac pro cislo prikladu
+\newcounter{CP} % novy citac pro cislo v labelu
+\newcommand{\novepocitadlo}{\stepcounter{poradi}\theporadi} % realizace pocitadla pro cislo prikladu 
+\newcommand{\novylable}[1]{\refstepcounter{CP}\label{#1}} % novy prikaz pro label, ktery resi spravny odkaz \ref
+\newcommand{\novynadpis}{{\normalsize \sffamily \color{bleudefrance}{Příklad \novepocitadlo}} \vspace{0.1cm} \novylable{\theCP}} %prikaz, který vypise "Priklad xy"
+
+\newenvironment{priklad}
+{\vspace{0.2cm}\rule{0.93\textwidth}{1pt}
+\small %\sffamily
+\begin{tcolorbox}[breakable,colback=white,colbacktitle=white,coltitle=black,colframe=white]\novynadpis\\ \noindent}
+{\end{tcolorbox}
+\rule{0.93\textwidth}{1pt}\vspace{0.2cm}}
+
+\numberwithin{equation}{section} %cislovani rovnic v kazde sekci zvlast
+\graphicspath{{obrazky/}{../obrazky/}} %adresar pro obrazky
+
+
+%kontrola vdov a sirotku
+\usepackage[defaultlines=4,all]{nowidow}
+
+%lepsi pozicovani
+\usepackage{float}
+
+\usepackage[pdftitle={Kinetická chemie},
+pdfauthor={P. Slavíček},
+bookmarks=true,
+colorlinks=true,
+breaklinks=true,
+urlcolor=red,
+citecolor=blue,
+linkcolor=blue,
+unicode=true,
+pdfstartview=FitV]{hyperref}
